@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BottomNavigationApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="add">add</string>
+    <string name="search">search</string>
+    <string name="add_image">add image</string>
+    <string name="search_text">search here</string>
+</resources>
