@@ -28,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     fragmentTransaction.replace(R.id.content, new HomeFragment()).commit();
                     return true;
-                case R.id.navigation_dashboard:
-                    return true;
-                case R.id.navigation_add:
-                    return true;
                 case R.id.navigation_notifications:
                     fragmentTransaction.replace(R.id.content, new NotificationsFragment()).commit();
                     return true;
