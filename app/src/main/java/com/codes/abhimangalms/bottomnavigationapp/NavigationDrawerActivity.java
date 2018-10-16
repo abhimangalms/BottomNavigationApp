@@ -1,5 +1,6 @@
 package com.codes.abhimangalms.bottomnavigationapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -126,6 +127,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_settings) {
+
+            Intent intent = new Intent(getApplicationContext(),SettingsActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
 

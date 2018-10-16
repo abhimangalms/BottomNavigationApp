@@ -93,7 +93,7 @@ public class SearchFragment extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            Toast.makeText(context, "Search fragment attached", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(context, "Search fragment attached", Toast.LENGTH_SHORT).show();
         }
     }
 
