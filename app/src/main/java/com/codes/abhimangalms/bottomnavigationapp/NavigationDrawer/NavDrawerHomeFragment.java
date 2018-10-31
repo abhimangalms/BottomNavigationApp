@@ -1,4 +1,4 @@
-package com.codes.abhimangalms.bottomnavigationapp;
+package com.codes.abhimangalms.bottomnavigationapp.NavigationDrawer;
 
 
 import android.os.Bundle;
@@ -7,14 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.codes.abhimangalms.bottomnavigationapp.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NavDrawerLogoutFragment extends Fragment {
+public class NavDrawerHomeFragment extends Fragment {
 
 
-    public NavDrawerLogoutFragment() {
+    public NavDrawerHomeFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +25,7 @@ public class NavDrawerLogoutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nav_drawer_logout, container, false);
+        return inflater.inflate(R.layout.fragment_nav_drawer_home, container, false);
     }
 
 }

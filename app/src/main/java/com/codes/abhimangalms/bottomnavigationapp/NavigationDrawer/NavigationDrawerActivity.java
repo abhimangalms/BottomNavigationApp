@@ -1,14 +1,11 @@
-package com.codes.abhimangalms.bottomnavigationapp;
+package com.codes.abhimangalms.bottomnavigationapp.NavigationDrawer;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,11 +15,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.codes.abhimangalms.bottomnavigationapp.BottomNavigation.HomeFragment;
+import com.codes.abhimangalms.bottomnavigationapp.BottomNavigation.NotificationsFragment;
+import com.codes.abhimangalms.bottomnavigationapp.R;
+import com.codes.abhimangalms.bottomnavigationapp.BottomNavigation.SearchFragment;
+
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -143,4 +146,6 @@ public class NavigationDrawerActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

@@ -1,7 +1,9 @@
-package com.codes.abhimangalms.bottomnavigationapp;
+package com.codes.abhimangalms.bottomnavigationapp.NavigationDrawer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.codes.abhimangalms.bottomnavigationapp.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
