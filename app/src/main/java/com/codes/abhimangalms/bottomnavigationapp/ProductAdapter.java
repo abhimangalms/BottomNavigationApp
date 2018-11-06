@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+
 import java.util.List;
 
 /** created by Abhimangal on 28/10/2018*/
@@ -65,14 +68,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         Product product = productList.get(position);
 
+
         holder.textViewTitle.setText(product.getTitle());
+        holder.textViewDescription.setText(String.valueOf(product.getShortdesc()));
+        holder.textViewDate.setText(product.getDate());
+      //  holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage()));
 
-        holder.textViewDescription.setText(String.valueOf(product.getPrice()));
-        holder.textViewDate.setText(product.getShortdesc());
+        //to load images from URL we use PICASSO library
 
-        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage()));
+        Picasso.get().
+                load(product.getImageUrl()).
+                placeholder(R.drawable.pandaa).
+                into(holder.imageView);
 
-        Log.i(TAG, "onBind "+ position);
 
         //item click listener for RecyclerView using interface
 
@@ -106,19 +114,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
 
-    class ProductViewHolder extends RecyclerView.ViewHolder{
+    public class ProductViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imageView;
-        TextView textViewTitle, textViewDate, textViewDescription;
+        public ImageView imageView;
+        public TextView textViewTitle, textViewDate, textViewDescription;
 
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.imageView);
             textViewDate = itemView.findViewById(R.id.textViewDate);
             textViewDescription = itemView.findViewById(R.id.textViewDescription);
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
+            imageView = (ImageView) itemView.findViewById(R.id.imgView);
         }
 
 

@@ -20,7 +20,7 @@
             android:padding="8dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imgView"
                 android:layout_width="101dp"
                 android:layout_height="84dp"
                 android:layout_marginTop="8dp"
@@ -48,7 +48,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/imgView"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="RtlCompat" />
@@ -62,7 +62,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="@+id/textViewTitle"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/imgView"
                 app:layout_constraintStart_toStartOf="@+id/textViewTitle"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
                 tools:ignore="HardcodedText,RtlCompat" />
@@ -80,7 +80,7 @@
                 android:paddingEnd="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textViewTitle"
-                app:layout_constraintLeft_toRightOf="@id/imageView"
+                app:layout_constraintLeft_toRightOf="@id/imgView"
                 app:layout_constraintTop_toBottomOf="@+id/textViewDate"
                 app:layout_constraintVertical_bias="0.09"
                 tools:ignore="RtlCompat" />

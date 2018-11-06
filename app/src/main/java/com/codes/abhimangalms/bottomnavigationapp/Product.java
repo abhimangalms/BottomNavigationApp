@@ -5,38 +5,37 @@ package com.codes.abhimangalms.bottomnavigationapp;
 public class Product {
 
     private int id;
-    private int image; //images in the drawable folder has a unique id ie, int type
     private String title;
+    private String date;
     private String shortdesc;
+    private String imageUrl;
 
-    private String price;
 
-    public Product(int id, String title, String shortdesc, String price, int image) {
+    public Product(int id, String title, String date, String shortdesc, String imageUrl) {
         this.id = id;
-        this.image = image;
         this.title = title;
+        this.date = date;
         this.shortdesc = shortdesc;
-
-        this.price = price;
+        this.imageUrl = imageUrl;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getImage() {
-        return image;
-    }
-
     public String getTitle() {
         return title;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public String getShortdesc() {
         return shortdesc;
     }
 
-    public String getPrice() {
-        return price;
+    public String getImageUrl() {
+        return imageUrl;
     }
 }

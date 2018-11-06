@@ -37,6 +37,7 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+
         productList = new ArrayList<>();
 
 
@@ -52,7 +53,7 @@ public class HomeFragment extends Fragment {
                         " Andy Rubin",
                         "22 oct at 9.38 pm",
                         "Android is a mobile operating system developed by Google, based on a modified version of the ",
-                        R.drawable.macbook));
+                        "https://www.simplifiedcoding.net/demos/marvel/ironman.jpg"));
 
         productList.add(
                 new Product(
@@ -60,7 +61,7 @@ public class HomeFragment extends Fragment {
                         " Rich Miner",
                         "23 oct at 9.50 pm",
                         "Initially developed by Android Inc., which Google bought in 2005, Android was unveiled in 2007.",
-                        R.drawable.pandaa));
+                        "https://www.simplifiedcoding.net/demos/marvel/captainamerica.jpg"));
 
         productList.add(
                 new Product(
@@ -68,7 +69,7 @@ public class HomeFragment extends Fragment {
                         " Nick Sears",
                         "24 oct at 10.38 pm",
                         "Android has been the best-selling OS worldwide on smartphones since 2011 and on tablets since 2013.",
-                        R.drawable.pandaaa));
+                        "https://www.simplifiedcoding.net/demos/marvel/logan.jpg"));
 
         productList.add(
                 new Product(
@@ -76,39 +77,41 @@ public class HomeFragment extends Fragment {
                         " Chris White",
                         "25 oct at 11.38 pm",
                         "The name Andrew and the noun Android share the Greek root andros, which means man. Andy Rubin .",
-                        R.drawable.macbook));
+                        "https://www.simplifiedcoding.net/demos/marvel/spiderman.jpg"));
 
         productList.add(
                 new Product(
                         1,
                         " Andy Rubin",
-                        "22 oct at 1.08 pm",
+                        "22 oct at 9.38 pm",
                         "Android is a mobile operating system developed by Google, based on a modified version of the ",
-                        R.drawable.macbook));
+                        "https://www.simplifiedcoding.net/demos/marvel/ironman.jpg"));
 
         productList.add(
                 new Product(
                         1,
                         " Rich Miner",
-                        "23 oct at 8.28 pm",
-                        "Initially developed by Android Inc., which Google bought in 2005, Android was unveiled in 2007",
-                        R.drawable.pandaa));
+                        "23 oct at 9.50 pm",
+                        "Initially developed by Android Inc., which Google bought in 2005, Android was unveiled in 2007.",
+                        "https://www.simplifiedcoding.net/demos/marvel/captainamerica.jpg"));
 
         productList.add(
                 new Product(
                         1,
                         " Nick Sears",
-                        "24 oct at 9.58 pm",
+                        "24 oct at 10.38 pm",
                         "Android has been the best-selling OS worldwide on smartphones since 2011 and on tablets since 2013.",
-                        R.drawable.pandaaa));
+                        "https://www.simplifiedcoding.net/demos/marvel/logan.jpg"));
 
         productList.add(
                 new Product(
                         1,
                         " Chris White",
-                        "25 oct at 9.38 pm",
+                        "25 oct at 11.38 pm",
                         "The name Andrew and the noun Android share the Greek root andros, which means man. Andy Rubin .",
-                        R.drawable.macbook));
+                        "https://www.simplifiedcoding.net/demos/marvel/spiderman.jpg"));
+
+
 
 
         ProductAdapter.OnMyItemClickedInterface objInterface = new ProductAdapter.OnMyItemClickedInterface() {
