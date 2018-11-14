@@ -19,7 +19,6 @@ public class FeedActivity extends AppCompatActivity {
     String descriptionContentFromRecycler;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
