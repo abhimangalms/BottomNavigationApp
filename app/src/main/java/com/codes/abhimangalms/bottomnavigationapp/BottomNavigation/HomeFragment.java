@@ -2,6 +2,7 @@ package com.codes.abhimangalms.bottomnavigationapp.BottomNavigation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,8 +10,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.codes.abhimangalms.bottomnavigationapp.Product;
 import com.codes.abhimangalms.bottomnavigationapp.ProductAdapter;
@@ -32,7 +35,7 @@ public class HomeFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -112,26 +115,46 @@ public class HomeFragment extends Fragment {
                         "https://www.simplifiedcoding.net/demos/marvel/spiderman.jpg"));
 
 
-
-
-        ProductAdapter.OnMyItemClickedInterface objInterface = new ProductAdapter.OnMyItemClickedInterface() {
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
+                return false;
+            }
 
             @Override
-            public void myItemClicked(int selPosition) {
-                Log.d("XXXX", "myItemClicked: position " + selPosition);
+            public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
 
 
             }
 
             @Override
-            public void myImageClicked(int selPosition) {
+            public void onRequestDisallowInterceptTouchEvent(boolean b) {
+
+            }
+        });
+
+
+
+
+        ProductAdapter.RecyclerViewClickedInterface objInterface = new ProductAdapter.RecyclerViewClickedInterface() {
+
+
+            @Override
+            public void recyclerDateClicked(int selPosition) {
 
             }
 
             @Override
-            public void myDescriptionClicked(int selposition) {
+            public void recyclerImageClicked(int selPosition) {
+
+            }
+
+            @Override
+            public void recyclerDescriptionClicked(String descriptionContent) {
 
                 Intent intent = new Intent(getContext(), FeedActivity.class);
+                intent.putExtra("descriptionFromRecyclerView", descriptionContent); //passing description data to FeedActivity
+
                 startActivity(intent);
 
             }

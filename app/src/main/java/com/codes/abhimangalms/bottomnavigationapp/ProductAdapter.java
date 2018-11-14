@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -28,22 +29,23 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
      private Context mCtx;
      private List<Product> productList;
-    private OnMyItemClickedInterface listener;
+    private RecyclerViewClickedInterface listener;
 
 
     public static final String TAG = "ProductAdapter";
 
 
-    public interface OnMyItemClickedInterface {
+    public interface RecyclerViewClickedInterface {
 
-        void myItemClicked(int selPosition);
-        void myImageClicked(int selPosition);
-        void myDescriptionClicked(int selposition);
+        void recyclerDateClicked(int selPosition);
+        void recyclerImageClicked(int selPosition);
+//        void recyclerDescriptionClicked(int selposition);
+        void recyclerDescriptionClicked(String descriptionContent);
 
     }
 
 
-    public ProductAdapter(Context mCtx, List<Product> productList, OnMyItemClickedInterface listener) {
+    public ProductAdapter(Context mCtx, List<Product> productList, RecyclerViewClickedInterface listener) {
         this.mCtx = mCtx;
         this.productList = productList;
         this.listener = listener;
@@ -64,7 +66,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ProductViewHolder holder, final int position) {
 
         Product product = productList.get(position);
 
@@ -87,7 +89,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.textViewDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.myItemClicked(position);
+                listener.recyclerDateClicked(position);
+
+                Toast.makeText(mCtx, "clicked date", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -95,14 +99,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.myImageClicked(position);
+                listener.recyclerImageClicked(position);
+
+                Toast.makeText(mCtx, "Image clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
         holder.textViewDescription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.myDescriptionClicked(position);
+
+                String descriptionData = holder.textViewDescription.getText().toString();
+
+                listener.recyclerDescriptionClicked(descriptionData); //passing data to HomeFragment
+
+
+
             }
         });
 
@@ -127,8 +139,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             textViewDescription = itemView.findViewById(R.id.textViewDescription);
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             imageView = (ImageView) itemView.findViewById(R.id.imgView);
-        }
 
+        }
 
     }
 
