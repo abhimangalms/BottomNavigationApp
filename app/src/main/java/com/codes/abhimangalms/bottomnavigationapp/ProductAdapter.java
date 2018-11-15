@@ -34,22 +34,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     public static final String TAG = "ProductAdapter";
 
-
+    //Interface for data transfer in RecyclerView
     public interface RecyclerViewClickedInterface {
 
         void recyclerDateClicked(int selPosition);
         void recyclerImageClicked(int selPosition);
-//        void recyclerDescriptionClicked(int selposition);
-        void recyclerDescriptionClicked(String descriptionContent);
+        void recyclerDescriptionClicked(String descriptionContent, String imageUrlContent, String titleNameContent);
 
     }
-
 
     public ProductAdapter(Context mCtx, List<Product> productList, RecyclerViewClickedInterface listener) {
         this.mCtx = mCtx;
         this.productList = productList;
         this.listener = listener;
     }
+
 
     @NonNull
     @Override
@@ -68,16 +67,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, final int position) {
 
-        Product product = productList.get(position);
+        final Product product = productList.get(position);
 
 
-        holder.textViewTitle.setText(product.getTitle());
+        holder.mtextViewName.setText(product.getTitle());
         holder.textViewDescription.setText(String.valueOf(product.getShortdesc()));
         holder.textViewDate.setText(product.getDate());
       //  holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage()));
 
         //to load images from URL we use PICASSO library
-
         Picasso.get().
                 load(product.getImageUrl()).
                 placeholder(R.drawable.pandaa).
@@ -109,11 +107,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             @Override
             public void onClick(View v) {
 
-                String descriptionData = holder.textViewDescription.getText().toString();
+                String descriptionData = holder.textViewDescription.getText().toString(); //getting description
+                String imageUrlData = product.getImageUrl(); //getting image url for the corresponding recyclerview
+                String titleName = product.getTitle(); // getting title from recyclerView
 
-                listener.recyclerDescriptionClicked(descriptionData); //passing data to HomeFragment
+                listener.recyclerDescriptionClicked(descriptionData, imageUrlData, titleName); //passing data to HomeFragment
 
+            }
+        });
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() { //
+            @Override
+            public void onClick(View v) {
+
+                String descriptionData = holder.textViewDescription.getText().toString(); //getting description
+                String imageUrlData = product.getImageUrl(); //getting image url for the corresponding recyclerview
+                String titleName = product.getTitle(); // getting title from recyclerView
+
+                listener.recyclerDescriptionClicked(descriptionData, imageUrlData, titleName); //passing data to HomeFragment
 
             }
         });
@@ -129,7 +140,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public class ProductViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView imageView;
-        public TextView textViewTitle, textViewDate, textViewDescription;
+        public TextView mtextViewName, textViewDate, textViewDescription;
 
 
         public ProductViewHolder(@NonNull View itemView) {
@@ -137,7 +148,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
             textViewDate = itemView.findViewById(R.id.textViewDate);
             textViewDescription = itemView.findViewById(R.id.textViewDescription);
-            textViewTitle = itemView.findViewById(R.id.textViewTitle);
+            mtextViewName = itemView.findViewById(R.id.textViewName);
             imageView = (ImageView) itemView.findViewById(R.id.imgView);
 
         }

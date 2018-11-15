@@ -150,10 +150,13 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public void recyclerDescriptionClicked(String descriptionContent) {
+            public void recyclerDescriptionClicked(String descriptionContent, String imageUrlContent, String titleNameContent) {
 
                 Intent intent = new Intent(getContext(), FeedActivity.class);
-                intent.putExtra("descriptionFromRecyclerView", descriptionContent); //passing description data to FeedActivity
+                intent.putExtra("descriptionFromHomeFragment", descriptionContent); //passing description data to FeedActivity
+                intent.putExtra("imageUrlFromHomeFragment", imageUrlContent); //passing imageUrl to feedsActivity
+                intent.putExtra("titleNameFromHomeFragment", titleNameContent); //passing imageUrl to feedsActivity
+
 
                 startActivity(intent);
 
